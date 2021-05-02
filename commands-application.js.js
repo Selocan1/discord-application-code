@@ -3,7 +3,7 @@
 const Discord = require('discord.js');
 var aktif;
 var steamid;
-var nedenmc;
+var nedens;
 exports.run = (client, message, args) => {
     if (message.author.bot) return;
     let filter = m => m.author.id === message.author.id;
@@ -59,7 +59,7 @@ exports.run = (client, message, args) => {
                           time: 20000,
                           errors: ['time']
                       }).then(collected => {
-                          nedenmc = collected.first().content
+                          nedens = collected.first().content
                           collected.first().delete();
                           kanal.delete()
                         const form = new Discord.RichEmbed()
@@ -67,7 +67,7 @@ exports.run = (client, message, args) => {
                             .addField("Kullanıcı Adı.", message.author.tag)
                             .addField("Aktiflik", aktif)
                             .addField("Oyun İçi Adınız", steamid)
-                            .addField("HANGİ YETKİ İÇİN BAŞVURU YAPTINIZ ?", nedenmc)
+                            .addField("HANGİ YETKİ İÇİN BAŞVURU YAPTINIZ ?", nedens)
                         message.guild.channels.get("SEND THE FORM TO İD").send(form)
                         message.author.send("Your application has been successfully sent to the authorities.")
                             })
